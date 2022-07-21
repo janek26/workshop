@@ -3,7 +3,7 @@
 }
 
 .main {
-  min-height: 100vh;
+  min-height: calc(100vh - 90px);
   padding: 4rem 0;
   flex: 1;
   display: flex;
@@ -15,7 +15,7 @@
 .footer {
   display: flex;
   flex: 1;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
   border-top: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
@@ -45,6 +45,15 @@
   font-size: 4rem;
 }
 
+.code {
+  background: #fafafa;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
 .title,
 .description {
   text-align: center;
@@ -54,15 +63,6 @@
   margin: 4rem 0;
   line-height: 1.5;
   font-size: 1.5rem;
-}
-
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
 .grid {
@@ -81,32 +81,70 @@
   text-decoration: none;
   border: 1px solid #eaeaea;
   border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
+  transition: all 0.2s ease;
+  max-width: 500px;
 }
 
 .card:hover,
-.card:focus,
+.card:focus-within,
 .card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
-
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
-
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .logo {
-  height: 1em;
   margin-left: 0.5rem;
 }
+
+.button {
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  background: #000000; 
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.button:hover,
+.button:focus,
+.button:active {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  outline: none;
+  border: none;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.input > label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.input > input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #eaeaea;
+  font-size: 1.25rem;
+  font-weight: 600;
+  outline: none;
+  transition: all 0.15s ease;
+}
+.input > div {
+  color: red;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+}
+.input + .input {
+  margin-top: 1rem;
+}
+
 
 @media (max-width: 600px) {
   .grid {

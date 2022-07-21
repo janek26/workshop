@@ -1,0 +1,56 @@
+[
+  {
+    "inputs": [
+      {
+        "name": "selection",
+        "type": "felt"
+      }
+    ],
+    "name": "bet",
+    "outputs": [],
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "get_winner",
+    "outputs": [
+      {
+        "name": "res",
+        "type": "felt"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "get_players",
+    "outputs": [
+      {
+        "name": "player1",
+        "type": "felt"
+      },
+      {
+        "name": "player2",
+        "type": "felt"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "name": "player1",
+        "type": "felt"
+      },
+      {
+        "name": "player2",
+        "type": "felt"
+      }
+    ],
+    "name": "constructor",
+    "outputs": [],
+    "type": "constructor"
+  }
+]
