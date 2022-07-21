@@ -9,9 +9,15 @@ import { NewGame } from "../components/newGame";
 import { JoinGame } from "../components/joinGame";
 import { useEffect, useState } from "react";
 import { Choose } from "../components/choose";
-import { getGameContract } from "../lib/gameContract";
+import {
+  bet,
+  getGameContract,
+  TOKEN_CONTRACT_ADDRESS_DECIMALS,
+} from "../lib/gameContract";
 import { BigNumber } from "@ethersproject/bignumber";
 import { GameResults } from "../components/gameResult";
+import { compileCalldata } from "starknet/dist/utils/stark";
+import { uint256 } from "starknet";
 
 const Home: NextPage = () => {
   const [gameResult, setGameResult] = useState<
@@ -94,7 +100,7 @@ const Home: NextPage = () => {
         ) : isConnected && gameId && betTransaction ? (
           <>
             <p className={styles.description}>
-              Your bet transaction is being send, this may take some time:{" "}
+              Your bet transaction is being sent, this may take some time:{" "}
               <br /> <code>{betTransaction}</code>
             </p>
             <ClipLoader color="#000000" size="5rem" />
@@ -106,9 +112,8 @@ const Home: NextPage = () => {
             </p>
 
             <Choose
-              onChoose={async (c) => {
-                const gameContract = getGameContract(gameId, wallet.account);
-                const tx = await gameContract.bet(c);
+              onChoose={async (choice) => {
+                const tx = await bet(wallet.account, gameId, choice);
                 if (!tx?.transaction_hash) {
                   throw new Error("Transaction hash is undefined");
                 }

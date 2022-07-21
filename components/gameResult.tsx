@@ -12,14 +12,17 @@ export const GameResults: FC<{
       <p className={styles.description}>
         You won! Congratulations! 🎉
         <Fireworks
+          options={{
+            opacity: 0.5,
+          }}
           style={{
             top: 0,
             left: 0,
             width: "100%",
             height: "100%",
             position: "fixed",
-            background: "white",
-            opacity: 0.5,
+            background: "transparent",
+            zIndex: -1,
           }}
         />
       </p>
